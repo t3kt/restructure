@@ -1,6 +1,6 @@
 //Maya ASCII 2014 scene
 //Name: restructure_model.ma
-//Last modified: Mon, Jul 21, 2014 01:11:56 PM
+//Last modified: Mon, Jul 21, 2014 01:53:22 PM
 //Codeset: 1252
 requires maya "2014";
 currentUnit -l centimeter -a degree -t film;
@@ -11,14 +11,14 @@ fileInfo "cutIdentifier" "201307170459-880822";
 fileInfo "osv" "Microsoft Windows 7 Ultimate Edition, 64-bit Windows 7 Service Pack 1 (Build 7601)\n";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 134.92738534452204 183.70870799017851 236.77141491921986 ;
-	setAttr ".r" -type "double3" -25.521846625249005 43.00000000000022 -359.99999999998028 ;
+	setAttr ".t" -type "double3" 146.40625516198671 419.34375354967705 210.18708410065057 ;
+	setAttr ".r" -type "double3" -53.721846625187389 48.599999999994772 -359.99999999991718 ;
 	setAttr ".rp" -type "double3" 6.1327763500779916e-015 3.4181171701035326e-016 1.1368683772161603e-013 ;
 	setAttr ".rpt" -type "double3" 1.4766214890610824e-013 -1.920004626144307e-014 -1.533428632203601e-013 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 312.65095787059579;
+	setAttr ".coi" 459.3940640540377;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -41,12 +41,12 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr ".o" yes;
 createNode transform -s -n "front";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 0 0 200.10000000000002 ;
+	setAttr ".t" -type "double3" 3.8247596550240601 30.250371817008045 200.10000000000002 ;
 createNode camera -s -n "frontShape" -p "front";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 200.10000000000002;
-	setAttr ".ow" 187.64448356683877;
+	setAttr ".ow" 650.5568467772647;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
@@ -54,23 +54,24 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".o" yes;
 createNode transform -s -n "side";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 200.10000000000008 -21.936830657968137 51.691741346023605 ;
+	setAttr ".t" -type "double3" 200.10000000000008 41.728598130459197 45.077151342031144 ;
 	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
 createNode camera -s -n "sideShape" -p "side";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 200.10000000000002;
-	setAttr ".ow" 382.60321938815861;
+	setAttr ".ow" 515.66241239457815;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "boxesGRP";
-createNode transform -n "box_1" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 10 50 ;
+createNode transform -n "group1" -p "boxesGRP";
+createNode transform -n "box_28" -p "group1";
+	setAttr ".t" -type "double3" -10 50 30 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape1" -p "box_1";
+createNode mesh -n "box_Shape28" -p "box_28";
 	setAttr -k off ".v";
 	setAttr -s 17 ".iog";
 	setAttr ".vir" yes;
@@ -103,55 +104,294 @@ createNode mesh -n "box_Shape1" -p "box_1";
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_2" -p "boxesGRP";
-	setAttr ".t" -type "double3" -50 10 50 ;
+createNode transform -n "box_29" -p "group1";
+	setAttr ".t" -type "double3" -30 50 30 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_3" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 30 50 ;
+createNode transform -n "box_30" -p "group1";
+	setAttr ".t" -type "double3" -30 50 10 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_4" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 30 50 ;
+createNode mesh -n "box_Shape30" -p "box_30";
+	setAttr -k off ".v";
+	setAttr -s 17 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_31" -p "group1";
+	setAttr ".t" -type "double3" -30 70 30 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_5" -p "boxesGRP";
-	setAttr ".t" -type "double3" -50 30 50 ;
+createNode mesh -n "box_Shape31" -p "box_31";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_32" -p "group1";
+	setAttr ".t" -type "double3" -30 70 10 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_6" -p "boxesGRP";
-	setAttr ".t" -type "double3" -50 50 10 ;
+createNode mesh -n "box_Shape32" -p "box_32";
+	setAttr -k off ".v";
+	setAttr -s 17 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_33" -p "group1";
+	setAttr ".t" -type "double3" -30 90 30 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_7" -p "boxesGRP";
-	setAttr ".t" -type "double3" -50 50 30 ;
+createNode mesh -n "box_Shape33" -p "box_33";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_34" -p "group1";
+	setAttr ".t" -type "double3" -30 90 10 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_8" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 50 50 ;
+createNode mesh -n "box_Shape34" -p "box_34";
+	setAttr -k off ".v";
+	setAttr -s 17 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_35" -p "group1";
+	setAttr ".t" -type "double3" -10 90 30 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_9" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 50 50 ;
+createNode mesh -n "box_Shape35" -p "box_35";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_36" -p "group1";
+	setAttr ".t" -type "double3" -10 70 30 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_10" -p "boxesGRP";
-	setAttr ".t" -type "double3" -50 50 50 ;
+createNode mesh -n "box_Shape36" -p "box_36";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "box_37" -p "group1";
+	setAttr ".t" -type "double3" -10 90 10 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_11" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 30 70 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_12" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 30 70 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_13" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 10 70 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_14" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 30 90 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_15" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 30 90 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_16" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 10 90 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_17" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 10 90 ;
-	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_18" -p "boxesGRP";
+createNode mesh -n "box_Shape37" -p "box_37";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "group2" -p "boxesGRP";
+createNode transform -n "box_18" -p "group2";
 	setAttr ".t" -type "double3" -50 10 30 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
@@ -188,46 +428,47 @@ createNode mesh -n "box_Shape18" -p "box_18";
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_19" -p "boxesGRP";
+createNode transform -n "box_19" -p "group2";
 	setAttr ".t" -type "double3" -50 30 10 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_20" -p "boxesGRP";
+createNode transform -n "box_20" -p "group2";
 	setAttr ".t" -type "double3" -50 30 30 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_21" -p "boxesGRP";
+createNode transform -n "box_21" -p "group2";
 	setAttr ".t" -type "double3" -70 30 10 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_22" -p "boxesGRP";
+createNode transform -n "box_22" -p "group2";
 	setAttr ".t" -type "double3" -70 30 30 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_23" -p "boxesGRP";
+createNode transform -n "box_23" -p "group2";
 	setAttr ".t" -type "double3" -70 10 30 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_24" -p "boxesGRP";
+createNode transform -n "box_24" -p "group2";
 	setAttr ".t" -type "double3" -90 30 10 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_25" -p "boxesGRP";
+createNode transform -n "box_25" -p "group2";
 	setAttr ".t" -type "double3" -90 30 30 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_26" -p "boxesGRP";
+createNode transform -n "box_26" -p "group2";
 	setAttr ".t" -type "double3" -90 10 10 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_27" -p "boxesGRP";
+createNode transform -n "box_27" -p "group2";
 	setAttr ".t" -type "double3" -90 10 30 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_28" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 50 30 ;
+createNode transform -n "group3" -p "boxesGRP";
+createNode transform -n "box_1" -p "group3";
+	setAttr ".t" -type "double3" -30 10 50 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape28" -p "box_28";
+createNode mesh -n "box_Shape1" -p "box_1";
 	setAttr -k off ".v";
 	setAttr -s 17 ".iog";
 	setAttr ".vir" yes;
@@ -260,292 +501,55 @@ createNode mesh -n "box_Shape28" -p "box_28";
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_29" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 50 30 ;
+createNode transform -n "box_3" -p "group3";
+	setAttr ".t" -type "double3" -10 30 50 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode transform -n "box_30" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 50 10 ;
+createNode transform -n "box_4" -p "group3";
+	setAttr ".t" -type "double3" -30 30 50 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape30" -p "box_30";
-	setAttr -k off ".v";
-	setAttr -s 17 ".iog";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_31" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 70 30 ;
+createNode transform -n "box_11" -p "group3";
+	setAttr ".t" -type "double3" -30 30 70 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape31" -p "box_31";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_32" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 70 10 ;
+createNode transform -n "box_12" -p "group3";
+	setAttr ".t" -type "double3" -10 30 70 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape32" -p "box_32";
-	setAttr -k off ".v";
-	setAttr -s 17 ".iog";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_33" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 90 30 ;
+createNode transform -n "box_13" -p "group3";
+	setAttr ".t" -type "double3" -30 10 70 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape33" -p "box_33";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_34" -p "boxesGRP";
-	setAttr ".t" -type "double3" -30 90 10 ;
+createNode transform -n "box_14" -p "group3";
+	setAttr ".t" -type "double3" -30 30 90 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape34" -p "box_34";
-	setAttr -k off ".v";
-	setAttr -s 17 ".iog";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_35" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 90 30 ;
+createNode transform -n "box_15" -p "group3";
+	setAttr ".t" -type "double3" -10 30 90 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape35" -p "box_35";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_36" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 70 30 ;
+createNode transform -n "box_16" -p "group3";
+	setAttr ".t" -type "double3" -30 10 90 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape36" -p "box_36";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "box_37" -p "boxesGRP";
-	setAttr ".t" -type "double3" -10 90 10 ;
+createNode transform -n "box_17" -p "group3";
+	setAttr ".t" -type "double3" -10 10 90 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
-createNode mesh -n "box_Shape37" -p "box_37";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "group4" -p "boxesGRP";
+createNode transform -n "box_2" -p "group4";
+	setAttr ".t" -type "double3" -50 10 50 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode transform -n "box_5" -p "group4";
+	setAttr ".t" -type "double3" -50 30 50 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode transform -n "box_6" -p "group4";
+	setAttr ".t" -type "double3" -50 50 10 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode transform -n "box_7" -p "group4";
+	setAttr ".t" -type "double3" -50 50 30 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode transform -n "box_8" -p "group4";
+	setAttr ".t" -type "double3" -10 50 50 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode transform -n "box_9" -p "group4";
+	setAttr ".t" -type "double3" -30 50 50 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode transform -n "box_10" -p "group4";
+	setAttr ".t" -type "double3" -50 50 50 ;
+	setAttr ".s" -type "double3" 10 10 10 ;
 createNode transform -n "pointsGRP";
 createNode transform -n "point_1" -p "pointsGRP";
 	setAttr ".t" -type "double3" -10 10 90 ;
@@ -695,32 +699,32 @@ createNode transform -n "point_37" -p "pointsGRP";
 	setAttr ".t" -type "double3" -90 10 10 ;
 createNode locator -n "point_Shape37" -p "point_37";
 	setAttr -k off ".v";
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_2" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_3" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_4" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_5" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_6" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_7" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_8" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_9" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_10" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_11" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_12" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_13" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_14" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_15" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_16" ;
-parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_17" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_19" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_20" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_21" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_22" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_23" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_24" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_25" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_26" ;
-parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_27" ;
-parent -s -nc -r -add "|boxesGRP|box_28|box_Shape28" "box_29" ;
+parent -s -nc -r -add "|boxesGRP|group1|box_28|box_Shape28" "box_29" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_19" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_20" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_21" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_22" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_23" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_24" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_25" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_26" ;
+parent -s -nc -r -add "|boxesGRP|group2|box_18|box_Shape18" "box_27" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_2" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_3" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_4" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_5" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_6" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_7" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_8" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_9" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_10" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_11" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_12" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_13" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_14" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_15" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_16" ;
+parent -s -nc -r -add "|boxesGRP|group3|box_1|box_Shape1" "box_17" ;
 createNode lightLinker -s -n "lightLinker1";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
@@ -841,35 +845,64 @@ connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "layerManager.dli[1]" "boxesLayer.id";
 connectAttr "layerManager.dli[2]" "pointsLayer.id";
-connectAttr "|boxesGRP|box_1|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_2|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_3|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_4|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_5|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_6|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_7|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_8|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_9|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_10|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_11|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_12|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_13|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_14|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_15|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_16|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_17|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_18|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_19|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_20|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_21|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_22|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_23|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_24|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_25|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_26|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_27|box_Shape18.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_28|box_Shape28.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|boxesGRP|box_29|box_Shape28.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|boxesGRP|group3|box_1|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_2|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group3|box_3|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group3|box_4|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_5|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_6|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_7|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_8|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_9|box_Shape1.iog" ":initialShadingGroup.dsm" -na
+		;
+connectAttr "|boxesGRP|group4|box_10|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_11|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_12|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_13|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_14|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_15|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_16|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group3|box_17|box_Shape1.iog" ":initialShadingGroup.dsm" 
+		-na;
+connectAttr "|boxesGRP|group2|box_18|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_19|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_20|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_21|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_22|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_23|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_24|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_25|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_26|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group2|box_27|box_Shape18.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group1|box_28|box_Shape28.iog" ":initialShadingGroup.dsm"
+		 -na;
+connectAttr "|boxesGRP|group1|box_29|box_Shape28.iog" ":initialShadingGroup.dsm"
+		 -na;
 connectAttr "box_Shape30.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "box_Shape31.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "box_Shape32.iog" ":initialShadingGroup.dsm" -na;
