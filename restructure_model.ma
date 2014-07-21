@@ -1,6 +1,6 @@
 //Maya ASCII 2014 scene
 //Name: restructure_model.ma
-//Last modified: Mon, Jul 21, 2014 05:52:37 PM
+//Last modified: Mon, Jul 21, 2014 05:57:29 PM
 //Codeset: 1252
 requires maya "2014";
 currentUnit -l centimeter -a degree -t film;
@@ -11,19 +11,17 @@ fileInfo "cutIdentifier" "201307170459-880822";
 fileInfo "osv" "Microsoft Windows 7 Ultimate Edition, 64-bit Windows 7 Service Pack 1 (Build 7601)\n";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -45.50291097286879 182.67367201364678 349.9065016420991 ;
-	setAttr ".r" -type "double3" -26.721846625207707 -2.9999999999287024 -360.00000000036027 ;
+	setAttr ".t" -type "double3" 244.34576898218256 78.335680478293099 -19.659593777741929 ;
+	setAttr ".r" -type "double3" -17.721846626000271 94.60000000000241 -2.5444437451708134e-014 ;
 	setAttr ".rp" -type "double3" 6.1327763500779916e-015 3.4181171701035326e-016 1.1368683772161603e-013 ;
 	setAttr ".rpt" -type "double3" 1.4766214890610824e-013 -1.920004626144307e-014 -1.533428632203601e-013 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 275.01173439117861;
+	setAttr ".coi" 257.34768948456343;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -7.0940586738288403e-011 -6.3882232836931507e-011 
-		5.6147086979763117e-011 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	setAttr ".v" no;
@@ -1300,6 +1298,53 @@ createNode transform -n "point_52" -p "pointsGRP";
 	setAttr ".t" -type "double3" -90 10 50 ;
 createNode locator -n "point_Shape52" -p "point_52";
 	setAttr -k off ".v";
+createNode transform -n "unitGRP";
+createNode transform -n "unit" -p "unitGRP";
+	setAttr ".s" -type "double3" 10 10 10 ;
+createNode mesh -n "unitShape" -p "unit";
+	setAttr -k off ".v";
+	setAttr -s 17 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode mesh -n "polySurfaceShape1" -p "unit";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 17 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_2" ;
 parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_3" ;
 parent -s -nc -r -add "|boxesGRP|box_1|box_Shape1" "box_4" ;
@@ -1327,8 +1372,8 @@ parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_25" ;
 parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_26" ;
 parent -s -nc -r -add "|boxesGRP|box_18|box_Shape18" "box_27" ;
 createNode lightLinker -s -n "lightLinker1";
-	setAttr -s 2 ".lnk";
-	setAttr -s 2 ".slnk";
+	setAttr -s 3 ".lnk";
+	setAttr -s 3 ".slnk";
 createNode displayLayerManager -n "layerManager";
 	setAttr ".cdl" 2;
 	setAttr -s 3 ".dli[1:2]"  1 2;
@@ -1405,18 +1450,34 @@ createNode displayLayer -n "boxesLayer";
 	setAttr ".do" 1;
 createNode displayLayer -n "pointsLayer";
 	setAttr ".do" 2;
+createNode polyBevel -n "polyBevel1";
+	setAttr ".ics" -type "componentList" 1 "e[*]";
+	setAttr ".ix" -type "matrix" 10 0 0 0 0 10 0 0 0 0 10 0 0 0 0 1;
+	setAttr ".ws" yes;
+	setAttr ".oaf" yes;
+	setAttr ".at" 180;
+	setAttr ".fn" yes;
+	setAttr ".mv" yes;
+	setAttr ".mvt" 0.0001;
+	setAttr ".sa" 30;
+	setAttr ".ma" 180;
+createNode phong -n "phong1";
+createNode shadingEngine -n "phong1SG";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo1";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
 select -ne :renderPartition;
-	setAttr -s 2 ".st";
+	setAttr -s 3 ".st";
 select -ne :initialShadingGroup;
 	setAttr -s 52 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultShaderList1;
-	setAttr -s 2 ".s";
+	setAttr -s 3 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
@@ -1437,14 +1498,24 @@ select -ne :ikSystem;
 	setAttr -s 4 ".sol";
 connectAttr "boxesLayer.di" "boxesGRP.do";
 connectAttr "pointsLayer.di" "pointsGRP.do";
+connectAttr "polyBevel1.out" "unitShape.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "phong1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "phong1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "layerManager.dli[1]" "boxesLayer.id";
 connectAttr "layerManager.dli[2]" "pointsLayer.id";
+connectAttr "polySurfaceShape1.o" "polyBevel1.ip";
+connectAttr "unitShape.wm" "polyBevel1.mp";
+connectAttr "phong1.oc" "phong1SG.ss";
+connectAttr "unitShape.iog" "phong1SG.dsm" -na;
+connectAttr "phong1SG.msg" "materialInfo1.sg";
+connectAttr "phong1.msg" "materialInfo1.m";
+connectAttr "phong1SG.pa" ":renderPartition.st" -na;
 connectAttr "|boxesGRP|box_1|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "|boxesGRP|box_2|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "|boxesGRP|box_3|box_Shape1.iog" ":initialShadingGroup.dsm" -na;
@@ -1497,5 +1568,6 @@ connectAttr "box_Shape49.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "box_Shape50.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "box_Shape51.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "box_Shape52.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "phong1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of restructure_model.ma
