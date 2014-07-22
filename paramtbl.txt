@@ -10,8 +10,8 @@ time_rate	.5	codev2	s4		1	time rate
 cam_fovamount	.5	codev2	s6		1	cam fov amount
 unit_opacity	.6	codev2	s18		1	unit opacity
 unit_wireopacity	.4	codev2	s22		1	unit wire opacity
-unit_group1opacity	.8	codev2	s26		1	unit group 1 opacity
-unit_group2opacity	.8	codev2	s30		1	unit group 2 opacity
+unit_groupaopacity	.8	codev2	s26		1	unit group A opacity
+unit_groupbopacity	.8	codev2	s30		1	unit group B opacity
 unit_scale	.5	codev2	s14		1	unit scale
 unit_scalevariation	0	codev2	s10		1	unit scale variation
 mod_rate	.3	codev2	s8		1	modifier rate
