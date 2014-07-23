@@ -19,6 +19,7 @@ mod_rate	.3	codev2	s8		1	modifier rate
 mod_scaleon	0					scale on
 mod_rotateon	1					rotate on
 mod_shuffleon	1					shuffle on
+mod_rotatescaleon	1					rotate-scale on
 mod_groupboundary	.7	codev2	s32		1	group boundary
 mod_posttwistamount	0	codev2	s12		1	post twist
 mod_posttwistrate	0	codev2	s16		1	post twist rate
