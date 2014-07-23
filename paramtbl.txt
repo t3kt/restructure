@@ -24,5 +24,5 @@ mod_groupboundary	.7	codev2	s32		1	group boundary
 mod_posttwistamount	0	codev2	s12		1	post twist
 mod_posttwistrate	0	codev2	s16		1	post twist rate
 light_generallevel	.6				1	general light level
-light_innerlevel	.6				1	inner light level
+light_innerlevel	.6	codev2	s29		1	inner light level
 light_shiftrate	.5					light shift rate
